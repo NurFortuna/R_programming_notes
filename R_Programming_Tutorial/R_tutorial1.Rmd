@@ -1,0 +1,89 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# LOAD DATA
+```{r}
+library(datasets)
+```
+
+# SUMMARIZE DATA 
+
+```{r}
+           # parametre vermediğimiz zaman
+head(iris) # iris datasetinin ilk altı satırını alıyoruz.
+
+head(iris, 3) #iris datasetinin ilk 3 satırını alıyoruz.
+
+```
+
+```{r}
+summary(iris) #istatistiksel olarak verinin özetlenmesi
+```
+```{r}
+plot(iris) 
+```
+```{r}
+# Clear packages
+detach("package:datasets", unload = TRUE) 
+```
+
+# LOAD PACKAGES
+
+pacman -> Tools to more conveniently perform tasks associated with add-on packages.
+It will install packages, if needed, and then load the packages.
+
+```{r}
+#pacman: Package Management Tool
+
+install.packages("pacman")  # Install pacman package
+
+```
+
+
+
+```{r}
+require(pacman) # Gives a confirmation message.
+
+```
+
+```{r}
+library(pacman) # Load pacman package
+```
+
+by using "pacman::p_load" you can use the p_load
+p_load -> Load and Install Packages
+
+```{r}
+pacman::p_load(pacman, dplyr, GGally, ggplot2, ggthemes, 
+  ggvis, httr, lubridate, plotly, rio, rmarkdown, shiny, 
+  stringr, tidyr) 
+
+```
+
+```{r}
+library(datasets)  # Load/unload base packages manually
+```
+
+# CLEAN UP
+
+```{r}
+p_unload(dplyr, tidyr, stringr,rio) # Clear specific packages
+```
+
+```{r}
+p_unload(all)  # clears all add-ons
+```
+The detach() >- function removes a database or object library/package 
+from the search path.
+
+```{r}
+detach("package:datasets", unload = TRUE)
+```
+
+
+```{r}
+# Clear console
+cat("\014")  # ctrl+L
+```

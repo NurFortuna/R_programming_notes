@@ -1,0 +1,117 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# LOAD DATASETS PACKAGES 
+
+```{r}
+library(datasets)  # Load/unload base packages manually
+```
+
+# LOAD DATA
+
+```{r}
+head(iris) 
+```
+
+
+#Basic plots
+
+plot() -> Basix x-y plotting
+
+```{r}
+
+plot(iris$Species) #Categorical variable
+
+```
+
+```{r}
+ 
+plot(iris$Sepal.Length) # Quantitative variable
+
+```
+
+
+```{r}
+
+plot(iris$Species, iris$Petal.Width)  # Categorical x Quantitative
+
+```
+
+```{r}
+plot(iris$Petal.Length, iris$Petal.Width)  # Quant pair
+```
+
+```{r}
+plot(iris)  # Entire data frame
+```
+
+
+```{r}
+# Plot with options
+plot(iris$Petal.Length, iris$Petal.Width,
+  col = "#FB8DA0",  # Hex code for datalab.cc pink
+  pch = 8,       # Use star for points
+  main = "Iris: Petal Length vs. Petal Width",
+  xlab = "Petal Length",
+  ylab = "Petal Width")
+
+```
+
+# PLOT FORMULAS WITH PLOT()
+
+```{r}
+
+plot(cos, 0, 2*pi)
+
+```
+
+```{r}
+plot(cos, -pi, 2*pi) 
+```
+```{r}
+plot(exp, 1, 5)
+```
+## dnorm function
+This function returns the value of the probability density function (pdf) of the normal distribution given a certain random variable x, a population mean μ, and the population standard deviation σ. 
+
+Syntax; dnorm(x, mean, sd)
+
+x: vector of quantiles.
+mean: vector of means.
+sd: vector standard deviation
+
+
+```{r}
+
+plot(dnorm, -3, +3)
+
+```
+
+```{r}
+
+# Formula plot with options
+plot(dnorm, -3, +3,
+  col = "#FB8DA0",
+  lwd = 5,
+  main = "Standard Normal Distribution",
+  xlab = "z-scores",
+  ylab = "Density")
+
+```
+# CLEAN UP
+
+```{r}
+
+# Clear packages
+detach("package:datasets", unload = TRUE)
+
+```
+
+
+```{r}
+# Clear console
+cat("\014")  # ctrl+L
+```
+
