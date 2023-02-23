@@ -1,0 +1,198 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# DATA TYPES
+
+```{r}
+# Numeric
+
+n <- 777 # Double precision by default
+n
+typeof(n)
+
+```
+```{r}
+n1 <- 2.5
+n1
+typeof(n1)
+```
+
+```{r}
+# Character
+
+c1 <- "a"
+c1
+typeof(c1)
+
+```
+
+```{r}
+
+c2 <- "aysenurr"
+c2
+typeof(c2)
+
+```
+
+```{r}
+# Logical
+
+l1 <- FALSE
+l1
+typeof(l1)
+
+```
+```{r}
+
+l2 <- T
+l2
+typeof(l2)
+
+```
+# DATA STRUCTURES
+
+```{r}
+
+#Vector
+#All same data types
+#1D
+
+v1 <- c(1, 2, 3, 4, 5)
+v1
+#is.vector(v1)
+
+v2 <- c("a", "b", "c")
+v2
+#is.vector(v2)
+
+v3 <- c(TRUE, TRUE, FALSE, FALSE)
+v3
+#is.vector(v3)
+
+```
+```{r}
+#Matrix 
+
+
+m1 <- matrix(c(T, T, F, F, T, F,F,F,T), nrow = 3)
+m1
+
+```
+```{r}
+m2 <- matrix(c("a", "b", 
+               "c", "d"), 
+               nrow = 4,
+               byrow = T)
+m2
+
+```
+```{r}
+#Array
+# Give data, then dimemensions (rows, columns, tables)
+
+a1 <- array(c( 1:12), c(2, 3, 2))
+a1
+```
+```{r}
+#Data frame
+
+# Can combine vectors of the same length
+
+vNumeric   <- c(1, 2, 3)
+vCharacter <- c("a", "b", "c")
+vLogical   <- c(T, F, T)
+
+
+dfa <- cbind(vNumeric, vCharacter, vLogical)
+dfa  # Matrix of one data type
+
+
+```
+
+
+```{r}
+df <- as.data.frame(cbind(vNumeric, vCharacter, vLogical))
+df  # Makes a data frame with three different data types
+```
+
+```{r}
+#List 
+
+o1 <- c(1, 2, 3,4,5,6)
+o2 <- c("a", "b", "c", "d")
+o3 <- c(T, F, T, T)
+
+list1 <- list(o1, o2, o3)
+list1
+```
+
+```{r}
+list2 <- list(o1, o2, o3, list1)  # Lists within lists!
+list2
+```
+# COERCING TYPES
+
+```{r}
+
+#Coercion -> changing a data object from one type to another
+# Goes to "least restrictive" data type
+
+(coerce1 <- c(1, "b", TRUE))
+# coerce1  # Parenthese around command above make this moot
+typeof(coerce1)
+
+```
+```{r}
+## Coerce numeric to integer ###############################
+
+(coerce2 <- 777)
+typeof(coerce2) #double
+
+(coerce3 <- as.integer(777))
+typeof(coerce3)
+
+```
+```{r}
+#Coerce character to numeric
+
+(coerce4 <- c("1", "2", "3","4","5"))
+typeof(coerce4) #character
+
+(coerce5 <- as.numeric(c("1", "2", "3","4","5")))
+typeof(coerce5) #double
+
+
+```
+```{r}
+#Coerce matrix to data frame
+
+(coerce6 <- matrix(1:12, nrow= 3))
+is.matrix(coerce6)
+
+(coerce7 <- as.data.frame(matrix(1:12, nrow= 3)))
+#is.data.frame(coerce7)
+
+
+```
+
+# CLEAN UP
+
+```{r}
+
+# Clear environment
+rm(list = ls()) 
+
+# Clear console
+cat("\014")  # ctrl+L
+
+```
+
+
+
+
+
+
+
+

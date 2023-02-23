@@ -1,0 +1,75 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# INSTALL AND LOAD PACKAGES
+
+```{r}
+library(datasets) 
+```
+
+```{r}
+head(lynx)
+```
+# HISTOGRAM
+
+```{r}
+# Default
+hist(lynx)
+```
+
+```{r}
+
+# Add some options
+hist(lynx,
+     breaks = 14,          # "Suggests" 14 bins
+     freq   = FALSE,       # Axis shows density, not freq.
+     col    = "#FF8C00",  # Color for histogram
+     main   = paste("Histogram of Annual Canadian Lynx",
+                    "Trappings, 1821-1934"),
+     xlab   = "Number of Lynx Trapped")
+
+# Add a normal distribution
+curve(dnorm(x, mean = mean(lynx), sd = sd(lynx)),
+      col = "#556B2F",  # Color of curve
+      lwd = 2,           # Line width of 2 pixels
+      add = TRUE) 
+
+
+# Add two kernel density estimators
+lines(density(lynx), col = "blue", lwd = 2)
+lines(density(lynx, adjust = 3), col = "purple", lwd = 2)
+
+# Add a rug plot
+rug(lynx, lwd = 2, col = "gray")
+
+```
+# CLEAN UP
+
+```{r}
+
+# Clear packages
+detach("package:datasets", unload = TRUE)  # For base
+
+# Clear console
+cat("\014")  # ctrl+L
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

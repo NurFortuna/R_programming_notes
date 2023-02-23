@@ -1,0 +1,101 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# INSTALL AND LOAD PACKAGES
+
+```{r}
+library(datasets)  # Load/unload base packages manually
+```
+
+```{r}
+# LOAD DATA 
+head(iris)
+
+```
+```{r}
+hist(iris$Sepal.Length)
+```
+
+```{r}
+summary(iris$Sepal.Length)
+```
+
+```{r}
+
+
+# Versicolor
+hist(iris$Sepal.Length[iris$Species == "versicolor"],
+  main = "Petal Length: Versicolor")
+
+# Virginica
+hist(iris$Sepal.Length[iris$Species == "virginica"],
+  main = "Petal Length: Virginica")
+
+# Setosa
+hist(iris$Sepal.Length[iris$Species == "setosa"],
+  main = "Petal Length: Setosa")
+
+```
+
+# SELECT BY VALUE
+
+```{r}
+
+hist(iris$Sepal.Length[iris$Sepal.Length < 6],
+  main = "Sepal.Length < 6")
+
+```
+
+```{r}
+
+hist(iris$Petal.Length[iris$Species == "virginica" & 
+  iris$Petal.Length < 5.5],
+  main = "Petal Length: Short Virginica")
+
+```
+
+# CREATE SUBSAMPLE
+
+```{r}
+i.setosa <- iris[iris$Species == "setosa",]
+i.virginica <- iris[iris$Species == 'virginica',]
+i.versicolor <- iris[iris$Species == 'versicolor',]
+```
+
+# EXPLORE SUBSAMPLE
+
+```{r}
+head(i.virginica)
+```
+
+```{r}
+summary(i.versicolor$Petal.Length)
+```
+```{r}
+hist(i.virginica$Petal.Length)
+```
+
+
+```{r}
+# CLEAN UP
+# Clear environment
+rm(list = ls()) 
+
+# Clear packages
+detach("package:datasets", unload = TRUE)  # For base
+
+# Clear plots
+dev.off()  # But only if there IS a plot
+
+# Clear console
+cat("\014")  # ctrl+L
+
+```
+
+
+
+
+
+

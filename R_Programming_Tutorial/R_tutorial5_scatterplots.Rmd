@@ -1,0 +1,67 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#Scatterplot -> for visualizing the association between two quantitative variables
+
+# LOAD DATASETS PACKAGES
+
+```{r}
+library(datasets) 
+```
+
+# LOAD DATA 
+
+```{r}
+head(mtcars)
+```
+
+# PLOTS
+
+```{r}
+# Put graphs in 1 rows and 2 column
+par(mfrow = c(1, 2))
+hist(mtcars$wt)
+hist(mtcars$mpg)
+```
+
+```{r}
+# Basic X-Y plot for two quantitative variables
+plot(mtcars$wt, mtcars$mpg)
+
+```
+
+```{r}
+
+# Add some options
+plot(mtcars$wt, mtcars$mpg,
+  pch = 19,         # Solid circle
+  cex = 2,        # Make 150% size
+  col = "#F08080",  # LightCoral 
+  main = "MPG as a Function of Weight of Cars",
+  xlab = "Weight (in 1000 pounds)",
+  ylab = "MPG")
+
+```
+
+# CLEAN UP
+
+```{r}
+# Clear packages
+detach("package:datasets", unload = TRUE)  # For base
+
+```
+
+
+```{r}
+# Clear plots
+dev.off()  # But only if there IS a plot
+```
+
+
+```{r}
+# Clear console
+cat("\014")  # ctrl+L
+```
+

@@ -1,0 +1,67 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+# summary()
+
+```{r}
+# INSTALL AND LOAD PACKAGES
+library(datasets) 
+
+# LOAD DATA ################################################
+
+head(iris)
+```
+
+```{r}
+
+# SUMMARY() 
+summary(iris$Species)  
+
+```
+```{r}
+summary(iris$Petal.Width) # Quantitative variable
+```
+```{r}
+summary(iris) # Entire data frame
+```
+
+#describe
+
+
+```{r}
+# Installs pacman ("package manager") if needed
+if (!require("pacman")) install.packages("pacman")
+
+```
+
+
+```{r}
+# Use pacman to load add-on packages as desired
+pacman::p_load(pacman, psych) 
+```
+# LOAD DATA
+
+```{r}
+head(iris)
+```
+```{r}
+# For quantitative variables only.
+
+describe(iris$Sepal.Length)  # One quantitative variable
+describe(iris)               # Entire data frame
+
+```
+```{r}
+# Clear environment
+rm(list = ls()) 
+
+# Clear packages
+p_unload(all)  # Remove all add-ons
+detach("package:datasets", unload = TRUE)   # For base
+
+
+# Clear console
+cat("\014")  # ctrl+L
+```
