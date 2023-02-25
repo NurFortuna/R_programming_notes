@@ -1,0 +1,99 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#Entering Data
+
+```{r}
+# Assigns number 0 through 12 to x1
+x1 <- 0:12
+x1
+
+```
+
+```{r}
+
+# Descending order
+x2 <- 12:0
+x2
+
+```
+
+```{r}
+
+# Ascending values (duplicates 1:10)
+(x3 <- seq(10))
+
+```
+
+```{r}
+# Specify change in values
+(x4 <- seq(30, -20, by = -5))
+```
+
+
+```{r}
+#ENTER MULTIPLE VALUES WITH C 
+
+#c = concatenate (or combine or collect)
+
+x5 <- c(5, 4, 1, 6, 7, 2, 2, 3, 2, 8)
+x5
+
+```
+# scan: Read Data Values
+
+Read data into a vector or list from the console or file.
+
+```{r}
+
+x6 <- scan()  # After running this command, go to console
+# Hit return after each number
+# Hit return twice to stop
+x6
+
+```
+```{r}
+# REP
+
+x7 <- rep(TRUE, 5)
+x7
+
+```
+```{r}
+
+# Repeats set
+x8 <- rep(c(TRUE, FALSE), 5)
+x8
+
+```
+```{r}
+
+# Repeats items in set
+x9 <- rep(c(TRUE, FALSE), each = 5)
+x9
+
+```
+```{r}
+# Clear environment
+rm(list = ls()) 
+
+# Clear console
+cat("\014")  # ctrl+L
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
